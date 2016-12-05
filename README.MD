@@ -23,3 +23,13 @@
 - E-mail: farnetani@gmail.com
 - Twitter: @farnetani
 - Facebook: http://www.fb.com/farnetanijr
+
+# Git
+
+```
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin git@github.com:farnetani/crud_angular2_delphimvcframework.git
+git push -u origin master
+```
