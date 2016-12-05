@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {CustomersComponent} from './customers/customers.component';
 import {CustomerComponent} from './customer/customer.component';
-//import {CustomerComponentEdit} from './customer/customer.componentEdit';
 
 const routes: Routes = [
   {

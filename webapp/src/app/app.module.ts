@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { CustomersComponent } from './customers/customers.component';
 import { CustomerComponent } from './customer/customer.component';
-//import { CustomerComponentEdit } from './customer/customer.componentEdit';
 import { CustomersService } from './customers.service';
 import { Myproj40RoutingModule } from './app-routing.module';
 
@@ -16,8 +15,7 @@ import { Myproj40RoutingModule } from './app-routing.module';
     AppComponent,
     HomeComponent,
     CustomersComponent,
-    CustomerComponent,
-  //  CustomerComponentEdit
+    CustomerComponent
   ],
   imports: [
     BrowserModule,
