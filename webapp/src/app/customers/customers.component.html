@@ -1,0 +1,28 @@
+<div class="col-md-12">
+  <h2>Customers</h2>
+  <nav> 
+    <a [routerLink]="['/customers/edit/-1']" class="btn btn-default">New</a>
+  </nav>
+  <table class="table table-striped">
+    <thead>
+      <th>ID</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      <th> </th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{customer.id}}</td>
+        <td>{{customer.first_name}}</td>
+        <td>{{customer.last_name}}</td>
+        <td>{{customer.age}}</td>
+        <td class="text-right">
+        <a [routerLink]="['/customers', customer.id]" class="btn btn-default">View</a>
+        <a [routerLink]="['/customers/edit', customer.id]" class="btn btn-default">Edit</a>
+        <a (click)="delete(customer)" class="btn btn-default">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
