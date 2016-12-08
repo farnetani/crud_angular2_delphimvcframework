@@ -51,6 +51,10 @@ begin
       Config[TMVCConfigKey.Messaging] := 'false';
       // Enable Server Signature in response
       Config[TMVCConfigKey.ExposeServerSignature] := 'true';
+       // Define a default URL for requests that don't map to a route or a file
+
+      Config[TMVCConfigKey.FallbackResource] := 'index.html';
+
     end);
   FMVC.AddController(TCustomersController);
   FMVC.AddMiddleware(TCORSMiddleware.Create);

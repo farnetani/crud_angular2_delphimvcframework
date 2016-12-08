@@ -38,6 +38,11 @@ type
     [MVCHTTPMethod([httpDelete])]
     procedure DeleteCustomerByID(id: Integer);
 
+    [MVCPath('/customers/($limit)/($page)')]
+    [MVCHTTPMethod([httpGET])]
+    procedure GetCustomersLimit(const limit, page:Integer);
+
+
     procedure OnBeforeAction(Context: TWebContext; const AActionName: string;
       var Handled: Boolean); override;
     procedure OnAfterAction(Context: TWebContext; const AActionName: string); override;
@@ -106,6 +111,11 @@ end;
 procedure TCustomersController.GetCustomers;
 begin
   Render(GetDAL.GetCustomers, true);
+end;
+
+procedure TCustomersController.GetCustomersLimit(const limit, page:Integer);
+begin
+  Render(GetDAL.GetCustomersLimit(limit, page), true);
 end;
 
 function TCustomersController.GetDAL: TCustomersTDG;

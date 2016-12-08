@@ -7,7 +7,8 @@ uses
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.VCLUI.Wait,
   Data.DB, FireDAC.Comp.Client, FireDAC.Comp.UI, FireDAC.Phys.FBDef,
-  FireDAC.Phys.IBBase, FireDAC.Phys.FB, FireDAC.DApt, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.Comp.DataSet;
+  FireDAC.Phys.IBBase, FireDAC.Phys.FB, FireDAC.DApt, FireDAC.Stan.Param,
+  FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.Comp.DataSet;
 
 type
   TCustomersTDG = class(TDataModule)
@@ -23,6 +24,7 @@ type
     { Private declarations }
   public
     function GetCustomers: TDataSet;
+    function GetCustomersLimit(const limit, page:integer): TDataSet;
     function GetCustomerById(const ID: UInt64): TDataSet;
   end;
 
@@ -65,6 +67,11 @@ begin
   FDConnection1.ExecSQL('SELECT * FROM CUSTOMERS ORDER BY ID', Result);
 end;
 
+function TCustomersTDG.GetCustomersLimit(const limit, page: Integer): TDataSet;
+begin
+  FDConnection1.ExecSQL('SELECT first '+inttostr(limit)+' skip '+inttostr(page)+' t.*, (select count(*) from CUSTOMERS) as totalRows FROM CUSTOMERS t ORDER BY t.ID', Result);
+end;
+
 procedure SetupFireDACConnection;
 var
   lParams: TStrings;
@@ -76,7 +83,9 @@ begin
     lParams.Add('Server=localhost');
     lParams.Add('User_Name=sysdba');
     lParams.Add('Password=masterkey');
+    lParams.Add('Pooled=true');
     FDManager.AddConnectionDef(PRIVATE_CONN_DEF_NAME, 'FB', lParams);
+
   finally
     lParams.Free;
   end;

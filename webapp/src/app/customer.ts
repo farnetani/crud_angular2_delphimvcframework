@@ -4,3 +4,5 @@ export interface Customer {
   last_name: String;
   age: Number;
 }
+
+export class Customer {} //Put by Arlei F. Farnetani Junior

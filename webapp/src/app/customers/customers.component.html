@@ -1,28 +1,58 @@
-<div class="col-md-12">
-  <h2>Customers</h2>
-  <nav> 
-    <a [routerLink]="['/customers/edit/-1']" class="btn btn-default">New</a>
-  </nav>
-  <table class="table table-striped">
-    <thead>
-      <th>ID</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Age</th>
-      <th> </th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let customer of customers">
-        <td>{{customer.id}}</td>
-        <td>{{customer.first_name}}</td>
-        <td>{{customer.last_name}}</td>
-        <td>{{customer.age}}</td>
-        <td class="text-right">
-        <a [routerLink]="['/customers', customer.id]" class="btn btn-default">View</a>
-        <a [routerLink]="['/customers/edit', customer.id]" class="btn btn-default">Edit</a>
-        <a (click)="delete(customer)" class="btn btn-default">Delete</a>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+<div class="row">
+  <div class="col-md-12">
+    <h2>Customers ({{ page+1 }} / {{ pageLimit }} | Registers: {{ totalRows }})</h2>
+    <nav> 
+      <a [routerLink]="['/customers/edit/-1']" class="btn btn-default">New</a>
+    </nav>
+    <table class="table table-striped">
+      <thead>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Age</th>
+        <th> </th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{customer.id}}</td>
+          <td>{{customer.first_name}}</td>
+          <td>{{customer.last_name}}</td>
+          <td>{{customer.age}}</td>
+          <td class="text-right">
+          <a [routerLink]="['/customers', customer.id]" class="btn btn-default">View</a>
+          <a [routerLink]="['/customers/edit', customer.id]" class="btn btn-default">Edit</a>
+          <a (click)="delete(customer)" class="btn btn-default">Delete</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-4"></div>  
+
+  <div class="col-md-4">
+    <nav aria-label="Page navigation">
+      <ul class="pagination pagination-sm">
+        <li>
+          <a aria-label="Previous" (click)="pageBefore()">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+<!--         <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li> -->
+        <li>
+          <a aria-label="Next" (click)="pageAfter()">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+      <div class="col-md-4"></div>  
+
 </div>

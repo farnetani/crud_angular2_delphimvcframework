@@ -10,6 +10,8 @@ import { CustomerComponent } from './customer/customer.component';
 import { CustomersService } from './customers.service';
 import { Myproj40RoutingModule } from './app-routing.module';
 
+import { Customer } from './customer';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,7 @@ import { Myproj40RoutingModule } from './app-routing.module';
     HttpModule,  
     Myproj40RoutingModule
   ],
-  providers: [CustomersService],
+  providers: [CustomersService, Customer],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
