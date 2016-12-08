@@ -42,6 +42,6 @@ https://github.com/danieleteti/delphimvcframework/tree/master/samples/angular2
 
 # Snapshot (view)
 
-![snapshot-list](demo1.png)
+![snapshot-list](https://github.com/farnetani/crud_angular2_delphimvcframework/blob/master/demo01.png)
 
-![snapshot-list](demo2.png)
+![snapshot-list](https://github.com/farnetani/crud_angular2_delphimvcframework/blob/master/demo02.png)
