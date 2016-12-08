@@ -39,3 +39,9 @@ https://github.com/danieleteti/delphimvcframework/tree/master/samples/angular2
 # 08/12/2016
 
 [+] Include pagination of data. The code will be revised!
+
+# Snapshot (view)
+
+![snapshot-list](demo1.png)
+
+![snapshot-list](demo2.png)
